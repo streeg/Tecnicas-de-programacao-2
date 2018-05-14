@@ -18,3 +18,45 @@ A inversão de controle carrega a forte conotação de que o código reutilizáv
 
 
 O estilo de programação de Hollywood parece bastante artificial, mas tem uma propriedade interessante: ao invés de entralaçar a função que está chamando para a que será chamada em pontos específicos do programa (Ou seja, chamadas de função, onde a ligação é feita nomeando funções), reverte essa relação, permitindo que um receptor desencadeie ações em muitos chamadores em um momento determinado pelo receptor. Isto implica um tipo diferente de composição do módulo, como muitos módulos podem registrar handles (Funções que serão chamadas no futuro) para o mesmo evento em um provedor. Deve-se tomar cuidado para não deixar a legibilidade do código comprometida.
+
+--
+
+Implementação em F#
+
+Utilização da biblioteca Observable - Informação de alterações de objetos.
+
+Hollywood crista (python):
+DataStorage
+StopWordsFilter
+WordFrequencyCounter
+
+Na versão implementada em F#, cada entidade envia informações para uma camada IObservable mais alta que modifica o que precisa ser modificado e a saída é enviada para as entidades localizadas nas camadas para que elas possam usar esse resultado como bem entenderem. 
+
+Imagem: Hollywood-em-F-0-Schematics
+
+A camada mais alta gerencia uma tentativa de contar a frequencia dos termos de um arquivo e remover as palavras desnecessárias usando outras entidades de uma camada mais baixa.
+
+
+Imagem: Hollywood-em-F-1-Stopwordsfile
+
+
+A versão implementada de DataStorage será um Observable event que por sua vez notificará membros de camada mais baixas para que as entidades possam se inscrever e ser notificadas quando DataStorage conseguir ler as palavras do arquivo inserido
+
+
+Imagem: Hollywood-em-F-2-DataStorage
+
+A implementação do StopWordFilter tem como objetivo fazer com que a entidade se inscreva no canal de DataStorage e que quando houver um novo valor inserido, leia as stopwords e as filtre e em seguida liberar o novo arquivo com palavras filtradas para entidades inscritas neste canal.
+
+
+Imagem: Hollywood-em-F-3-Stopwords
+
+
+Finalmente o WordFrequencyCounter, que pega um Observable event e imprime as 25 palavras mais frequentes.
+
+
+Imagem: Hollywood-em-F-4-WordFrequency
+
+
+Para juntar tudo em uma string, criamos um novo evento. 
+
+Imagem: Hollywood-em-F-5-RunArgs.
