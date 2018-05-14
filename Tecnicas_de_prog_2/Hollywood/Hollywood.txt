@@ -5,9 +5,7 @@ As entidades nunca serão chamadas diretamente para realizar uma ação
 As entidades fornecem interfaces para outras entidades poderem registrar quando são chamadas
 Durante o processo as entidades chamam entidades que já pussuem registro de que foram chamadas.
 
-Inversão de controle é o nome dado ao padrão de desenvolvimento de programas de computadores onde a sequência (controle) de chamadas dos métodos é invertida em relação à programação tradicional, ou seja, ela não é determinada diretamente pelo programador. Este controle é delegado a uma infraestrutura de software muitas vezes chamada de container ou a qualquer outro componente que possa tomar controle sobre a execução. Esta é uma característica muito comum a alguns frameworks.
-
-Inversão de controle é usado para tornar um código modular e tem muitas aplicações em orientação a objetos.
+Inversão de controle é o nome dado ao padrão de desenvolvimento de programas de computadores onde a sequência (controle) de chamadas dos métodos é invertida em relação à programação tradicional, ou seja, ela não é determinada diretamente pelo programador. Este controle é delegado a uma infraestrutura de software muitas vezes chamada de container ou a qualquer outro componente que possa tomar controle sobre a execução. Esta é uma característica muito comum a alguns frameworks. É usado para tornar um código modular e tem muitas aplicações em orientação a objetos.
 
 Um exemplo em programação tradicional, a função principal de uma aplicação pode chamar funções que levam o usuário para um menu contendo a lista de comandos disponíveis e consultar a instancia selecionada.
 A biblioteca apresentada pelo menu iria retornar a opção selecionada como o valor chamado por uma função e a função principal (main) usaria esse valor para executar um comando associado. Esse estilo é tradicionalmente utilizado em programação textual.  Por exemplo, um cliente utilizando email recebe uma tela com comandos (ler, escrever, enviar) e a execução do programa fica bloqueada até que o usuário escolha um comando.

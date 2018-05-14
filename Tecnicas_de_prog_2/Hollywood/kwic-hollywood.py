@@ -92,7 +92,7 @@ class WordFrequencyCounter:
             print w, ' - ', c
 
 #
-# The main function
+# The main function:
 #
 wfapp = WordFrequencyFramework()
 stop_word_filter = StopWordFilter(wfapp)
