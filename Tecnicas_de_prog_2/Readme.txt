@@ -6,3 +6,4 @@ Implementação de um algoritmo Key-Word-In-Context com suporte à html em Pytho
 Implementação da feature subtraction e multiplication em ELP.
 Implementação da feature subtraction e multiplication em AOP.
 Implementação da feature subtraction e multiplication em scala.
+Implementando kwic modular com testes
